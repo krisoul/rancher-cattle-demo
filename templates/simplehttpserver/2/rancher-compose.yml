@@ -16,6 +16,12 @@
     default: "hello world!"
     required: false
     type: "string"
+  - variable: WORKING_DIR
+    description: 'Working directory path'
+    label: 'Working dir:'
+    required: true
+    default: /home/admin/project
+    type: string
 
 node:
-  scale: 2
+  scale: 1

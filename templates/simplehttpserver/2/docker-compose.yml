@@ -1,7 +1,10 @@
 node:
-  image: hub.yfcloud.com/simplehttpserver
+  image: hub.yfcloud.com/simplehttpserver:lastest
   environment:
     LISTEN_PORT: ${LISTEN_PORT}
     RESPONSE: ${RESPONSE}
   ports:
     - 8081:${LISTEN_PORT}/tcp
+  tty: true
+  volumes:
+  	- ${WORKING_DIR}
