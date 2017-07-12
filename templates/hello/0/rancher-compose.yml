@@ -1,6 +1,6 @@
 .catalog:
   name: hello
-  version: 1
+  version: 0
   description: test image.
   uuid: hello-0
   questions:
