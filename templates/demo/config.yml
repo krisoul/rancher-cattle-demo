@@ -2,7 +2,7 @@ name: demo
 description: |
   A Demo App which does almost nothing of any practical value.
 version: 0.0.1 
-category: Toy Apps 
-maintainer: demouser 
+category: Toy Apps
+maintainer: demouser
 license: Apache2
 projectURL: https://github.com/krisoul/rancher-cattle-demo
