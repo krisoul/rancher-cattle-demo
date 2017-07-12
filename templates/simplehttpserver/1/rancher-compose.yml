@@ -1,6 +1,6 @@
 .catalog:
   name: simplehttpserver
-  version: 0
+  version: 1
   description: Yet another simple http server but written by golang.
   uuid: simplehttpserver-0
   questions:
