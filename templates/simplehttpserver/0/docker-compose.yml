@@ -3,4 +3,3 @@ node:
   environment:
     LISTEN_PORT: ${LISTEN_PORT}
     RESPONSE: ${RESPONSE}
-  command: ${RESPONSE}
