@@ -1,8 +1,7 @@
 name: demo
-description: |
-  #A Demo App which does almost nothing of any practical value.
+description: A Demo App which does almost nothing of any practical value.
 version: 0.0.1 
 category: System
-maintainer: demouser
+maintainer: Nathan Valentine <nathan@rancher.com|nrvale0@gmail.com>
 license: Apache2
 projectURL: https://github.com/krisoul/rancher-cattle-demo
