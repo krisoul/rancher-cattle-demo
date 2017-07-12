@@ -2,7 +2,7 @@
   name: simplehttpserver
   version: 1
   description: Yet another simple http server but written by golang.
-  uuid: simplehttpserver-0
+  uuid: simplehttpserver-1
   questions:
   - variable: "LISTEN_PORT"
     label: "LISTEN_PORT"
