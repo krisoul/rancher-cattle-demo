@@ -1,0 +1,6 @@
+node:
+  image: golang:lastest
+  environment:
+    LISTEN_PORT: ${LISTEN_PORT}
+    RESPONSE: ${RESPONSE}
+  command: ${RESPONSE}
