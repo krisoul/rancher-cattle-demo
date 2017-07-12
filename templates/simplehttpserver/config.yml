@@ -1,4 +1,4 @@
 name: simple-http-server
 description: Yet another simple http server but written by golang.
-version: latest
+version: 1
 category: Application

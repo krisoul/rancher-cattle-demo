@@ -1,0 +1,7 @@
+node:
+  image: hub.yfcloud.com/simplehttpserver
+  environment:
+    LISTEN_PORT: ${LISTEN_PORT}
+    RESPONSE: ${RESPONSE}
+  ports:
+    - 8081:8080/tcp
