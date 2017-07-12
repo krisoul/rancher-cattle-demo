@@ -7,4 +7,4 @@ node:
     - 8081:${LISTEN_PORT}/tcp
   tty: true
   volumes:
-  	- ${WORKING_DIR}
+    - ${WORKING_DIR}
