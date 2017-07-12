@@ -1,5 +1,5 @@
 node:
-  image: hub.yfcloud.com/simplehttpserver
+  image: hub.yfcloud.com/hello
   environment:
     LISTEN_PORT: ${LISTEN_PORT}
     RESPONSE: ${RESPONSE}
