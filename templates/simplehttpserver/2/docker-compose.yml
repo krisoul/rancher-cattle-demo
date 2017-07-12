@@ -5,6 +5,7 @@ node:
     RESPONSE: ${RESPONSE}
   ports:
     - 8081:${LISTEN_PORT}/tcp
+  stdin_open: true
   tty: true
   volumes:
-    - ${WORKING_DIR}
+    - ${WORKING_DIR}:/var/
