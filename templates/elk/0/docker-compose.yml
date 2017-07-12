@@ -1,0 +1,51 @@
+version: '2'
+services:
+    jhipster-elasticsearch:
+        #build: https://github.com/diogoarm/jhipster-console/blob/master/jhipster-elasticsearch/Dockerfile
+        image: jhipster/jhipster-elasticsearch:latest
+        labels: 
+            io.rancher.container.hostname_override: container_name
+        ports:
+            - "9200:9200"
+            - "9300:9300"
+        # Uncomment this section to have elasticsearch data loaded from a volume
+        #volumes:
+        #    - /usr/share/elasticsearch/config
+        #    - /opt/rancher/bin
+        # Set memlock ulimits to pass bootstrap checks
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+            nofile:
+                soft: 65536
+                hard: 65536   
+
+    jhipster-logstash:
+        #build: https://github.com/diogoarm/jhipster-console/blob/master/jhipster-logstash/Dockerfile
+        image: jhipster/jhipster-logstash:latest
+        # Uncomment to have logstash config loaded from a volume
+        #volumes:
+        #    - ./jhipster-logstash/conf/:/conf
+        command: 
+            - logstash -f /conf/logstash.conf
+        ports:
+            - "5000:5000/udp"
+
+    jhipster-console:
+        #build: https://github.com/diogoarm/jhipster-console/blob/master/jhipster-console/Dockerfile
+        image: jhipster/jhipster-console:latest
+        ports:
+            - "5601:5601"
+        environment:
+            - ELASTICSEARCH_URL=jhipster-elasticsearch:9200
+        # Uncomment this section to have kibana JSON files loaded from a volume
+        #volumes:
+        #    - ./jhipster-console/dashboards:/tmp/dashboards
+
+    #jhipster-alerter:
+    #    build: jhipster-alerter/
+        # Uncomment this section to enable alerting
+        #volumes:
+        #    - ./alerts/config.yaml:/opt/elastalert/config.yaml
+        #    - ./alerts/rules/:/opt/elastalert/rules
