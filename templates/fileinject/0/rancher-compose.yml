@@ -1,0 +1,39 @@
+.catalog:
+  name: fileinject
+  version: 0
+  description: Yufanjiasu Fileinject System.
+  uuid: fileinject-0
+  questions:
+  - variable: SCHEDULER_LISTEN_PORT
+    label: "SCHEDULER_LISTEN_PORT"
+    description: "Specify an available port to listen for Scheduler."
+    default: 7300
+    required: true
+    type: "int"
+  - variable: SUPERVISOR_LISTEN_PORT
+    label: "SUPERVISOR_LISTEN_PORT"
+    description: "Specify an available port to listen for Supervisor."
+    default: 7310
+    required: true
+    type: "int"
+  - variable: ADMIN_LISTEN_PORT
+    label: "ADMIN_LISTEN_PORT"
+    description: "Specify an available port to listen for Admin."
+    default: 7320
+    required: true
+    type: "int"
+  - variable: WORKING_DIR
+    description: 'Working directory path'
+    label: 'Working dir:'
+    required: true
+    default: /var/docker/fileinject
+    type: string
+
+conf:
+  scale: 1
+
+scheduler:
+  scale: 1
+
+supervisor:
+  scale: 1

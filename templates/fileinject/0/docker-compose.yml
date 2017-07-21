@@ -1,0 +1,63 @@
+version: '2'
+
+services:
+  
+  conf:
+    image: hub.yfcloud.com/fileinject/conf:latest
+    network_mode: none
+    tty: true
+    stdin_open: true 
+
+  scheduler:
+    depends_on:
+      - conf      
+    image: hub.yfcloud.com/fileinject/scheduler:latest
+    ports:
+      - ${SCHEDULER_LISTEN_PORT}:7300
+    restart: always
+    tty: true
+    stdin_open: true   
+    volumes:
+      - ${WORKING_DIR}/scheduler/var/:/fileinject/scheduler/var/
+    volumes_from:
+      - conf
+    command:
+      - -c=/fileinject/conf/scheduler.yml
+    labels:
+      io.rancher.sidekicks: conf
+
+  supervisor:
+    depends_on:
+      - conf 
+    image: hub.yfcloud.com/fileinject/supervisor:latest
+    ports:
+      - ${SUPERVISOR_LISTEN_PORT}:7310
+    restart: always
+    tty: true
+    stdin_open: true    
+    volumes:
+      - ${WORKING_DIR}/supervisor/var/:/fileinject/supervisor/var/
+    volumes_from:
+      - conf
+    command:
+      - -c=/fileinject/conf/supervisor.yml
+    labels:
+      io.rancher.sidekicks: conf
+
+  admin:
+    depends_on:
+      - conf 
+    image: hub.yfcloud.com/fileinject/admin:latest
+    ports:
+      - ${ADMIN_LISTEN_PORT}:7320
+    restart: always
+    tty: true
+    stdin_open: true    
+    volumes:
+      - ${WORKING_DIR}/admin/var/:/fileinject/admin/var/
+    volumes_from:
+      - conf
+    command:
+      - -c=/fileinject/conf/admin.conf
+    labels:
+      io.rancher.sidekicks: conf
