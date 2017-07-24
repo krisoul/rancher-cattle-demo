@@ -57,4 +57,3 @@ services:
       - conf
     command:
       - -c=/fileinject/conf/admin.conf
-  
