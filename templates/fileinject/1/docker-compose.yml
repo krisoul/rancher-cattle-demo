@@ -23,6 +23,8 @@ services:
       - conf
     command:
       - -c=/fileinject/conf/scheduler.yml 
+    labels:
+      io.rancher.sidekicks: conf
 
   supervisor:
     depends_on:
@@ -38,7 +40,11 @@ services:
     volumes_from:
       - conf
     command:
-      - -c=/fileinject/conf/supervisor.yml    
+      - -c=/fileinject/conf/supervisor.yml 
+    labels:
+      io.rancher.sidekicks: conf
+    links:
+      - scheduler:scheduler   
 
   admin:
     depends_on:
@@ -55,3 +61,5 @@ services:
       - conf
     command:
       - -c=/fileinject/conf/admin.conf
+    labels:
+      io.rancher.sidekicks: conf
