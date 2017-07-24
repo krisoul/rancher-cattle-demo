@@ -38,9 +38,7 @@ services:
     volumes_from:
       - conf
     command:
-      - -c=/fileinject/conf/supervisor.yml
-    links:
-      - scheduler:scheduler
+      - -c=/fileinject/conf/supervisor.yml    
 
   admin:
     depends_on:

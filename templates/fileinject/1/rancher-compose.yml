@@ -37,3 +37,6 @@ scheduler:
 
 supervisor:
   scale: 1
+
+admin:
+  scale: 1
