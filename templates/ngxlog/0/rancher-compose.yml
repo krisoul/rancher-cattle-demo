@@ -1,0 +1,30 @@
+.catalog:
+  name: ngxlog
+  version: 0
+  description: Yufanjiasu Ngxlog System.
+  uuid: ngxlog-0
+  questions:
+  - variable: TRANSFER_LISTEN_PORT
+    label: "TRANSFER_LISTEN_PORT"
+    description: "Specify an available port to listen for Transfer."
+    default: 18100
+    required: true
+    type: "int"
+  - variable: LOG_PATH
+    label: "LOG_PATH"
+    description: "Specify an local path to storage the ngx log."
+    default: "/data/ngx_log_server/logs_date/"
+    required: true
+    type: "string"
+  
+conf:
+  scale: 1
+  start_on_create: true
+
+transfer:
+  scale: 1
+  start_on_create: true
+
+loguper:
+  scale: 1
+  start_on_create: true

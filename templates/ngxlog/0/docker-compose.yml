@@ -1,0 +1,51 @@
+version: '2'
+
+services:
+  conf:
+    image: hub.yfcloud.com/ngxlog/conf:latest
+    network_mode: none
+    tty: true
+    stdin_open: true
+
+  loguper:
+    depends_on:
+      - conf
+    image: hub.yfcloud.com/ngxlog/loguper:latest
+    restart: always
+    tty: true
+    stdin_open: true
+    volumes:
+      - "/var/docker/ngxlog/loguper/var/:/ngxlog/loguper/var/"
+      - "/data/ngx_log_server/logs_date/:/data/ngx_log_server/logs_date/"
+    volumes_from:
+      - conf
+    command:
+      - -c=/ngxlog/conf/loguper.yml
+    labels:
+      io.rancher.sidekicks: conf
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:host_label: ngxlog=s1
+      io.rancher.scheduler.affinity:host_label: ngxlog=s2
+
+  transfer:
+    depends_on:
+      - conf
+    image: hub.yfcloud.com/ngxlog/transfer:latest
+    ports:
+      - "18100:8100"
+    restart: always
+    tty: true
+    stdin_open: true
+    volumes:
+      - "/var/docker/ngxlog/transfer/var/:/ngxlog/transfer/var/"
+      - "/data/ngx_log_server/logs_date/:/data/ngx_log_server/logs_date/"
+    volumes_from:
+      - conf
+    command:
+      - -c=/ngxlog/conf/transfer.yml
+    labels:
+      io.rancher.scheduler.affinity:host_label: ngxlog=s1
+      io.rancher.scheduler.affinity:host_label: ngxlog=s2
+      io.rancher.sidekicks: conf
+      io.rancher.container.pull_image: always
+
