@@ -16,7 +16,7 @@ services:
     stdin_open: true
     volumes:
       - "/var/docker/ngxlog/loguper/var/:/ngxlog/loguper/var/"
-      - "/data/ngx_log_server/logs_date/:/data/ngx_log_server/logs_date/"
+      - "${LOG_PATH}:${LOG_PATH}"
     volumes_from:
       - conf
     command:
@@ -32,13 +32,13 @@ services:
       - conf
     image: hub.yfcloud.com/ngxlog/transfer:latest
     ports:
-      - "18100:8100"
+      - "${TRANSFER_LISTEN_PORT}:8100"
     restart: always
     tty: true
     stdin_open: true
     volumes:
       - "/var/docker/ngxlog/transfer/var/:/ngxlog/transfer/var/"
-      - "/data/ngx_log_server/logs_date/:/data/ngx_log_server/logs_date/"
+      - "${LOG_PATH}:${LOG_PATH}"
     volumes_from:
       - conf
     command:
