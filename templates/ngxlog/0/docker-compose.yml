@@ -24,7 +24,7 @@ services:
     labels:
       io.rancher.sidekicks: conf
       io.rancher.container.pull_image: always
-      io.rancher.scheduler.affinity:host_label: ngxlog=s1
+      io.rancher.scheduler.affinity:host_label: ngxlogserver=s1
 
   transfer:
     depends_on:
@@ -43,7 +43,7 @@ services:
     command:
       - -c=/ngxlog/conf/transfer.yml
     labels:
-      io.rancher.scheduler.affinity:host_label: ngxlog=s1
+      io.rancher.scheduler.affinity:host_label: ngxlogserver=s1
       io.rancher.sidekicks: conf
       io.rancher.container.pull_image: always
 
