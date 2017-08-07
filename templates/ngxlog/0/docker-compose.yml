@@ -37,6 +37,7 @@ services:
     stdin_open: true
     volumes:
       - "/var/docker/ngxlog/transfer/var/:/ngxlog/transfer/var/"
+      - "/etc/hosts:/etc/hosts"
       - "${LOG_PATH}:${LOG_PATH}"
     volumes_from:
       - conf

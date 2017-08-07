@@ -13,7 +13,7 @@
   - variable: LOG_PATH
     label: "LOG_PATH"
     description: "Specify an local path to storage the ngx log."
-    default: "/data/ngx_log_server/logs_date/"
+    default: "/data/ngx_log_server/"
     required: true
     type: "string"
   
