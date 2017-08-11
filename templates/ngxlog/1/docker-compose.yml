@@ -7,7 +7,7 @@ services:
     tty: true
     stdin_open: true
 
-  transfer:  
+  transfer:
     image: hub.yfcloud.com/ngxlog/transfer:latest
     network_mode: host
     ports:
@@ -25,10 +25,10 @@ services:
       - -c=/ngxlog/conf/transfer.yml
     labels:
       io.rancher.scheduler.affinity:host_label: ngxlogserver=${NGX_LOG_SERVER}
+      io.rancher.sidekicks: conf
       io.rancher.container.pull_image: always
 
   loguper:
-
     image: hub.yfcloud.com/ngxlog/loguper:latest
     network_mode: host
     restart: always
@@ -43,5 +43,6 @@ services:
       - -c=/ngxlog/conf/loguper.yml
     labels:
       io.rancher.scheduler.affinity:host_label: ngxlogserver=${NGX_LOG_SERVER}
+      io.rancher.sidekicks: conf
       io.rancher.container.pull_image: always
 
