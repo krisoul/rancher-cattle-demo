@@ -18,10 +18,14 @@
     type: "string"
   - variable: NGX_LOG_SERVER
     label: "NGX_LOG_SERVER"
-    description: "Specify an NgxLogServer host to deploy the services."
-    default: "s1"
+    description: "Specify a collection of NgxLogServer hosts to deploy the services."
+    default: s1
     required: true
-    type: "string"
+    type: enum
+    options:
+      - s0
+      - s1
+      - s2
   
 conf:
   scale: 1
