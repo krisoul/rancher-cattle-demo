@@ -7,34 +7,34 @@ services:
     tty: true
     stdin_open: true
 
-  # transfer:
-  #   depends_on:
-  #     - conf
-  #   image: hub.yfcloud.com/ngxlog/transfer:latest
-  #   network_mode: host
-  #   ports:
-  #     - "${TRANSFER_LISTEN_PORT}:8100"
-  #   restart: always
-  #   tty: true
-  #   stdin_open: true
-  #   volumes:
-  #     - "/var/docker/ngxlog/transfer/var/:/ngxlog/transfer/var/"
-  #     - "/etc/hosts:/etc/hosts"
-  #     - "${LOG_PATH}:${LOG_PATH}"
-  #   volumes_from:
-  #     - conf
-  #   command:
-  #     - -c=/ngxlog/conf/transfer.yml
-  #   labels:
-  #     io.rancher.scheduler.affinity:host_label: ngxlogserver=${NGX_LOG_SERVER}
-  #     io.rancher.sidekicks: conf
-  #     io.rancher.container.pull_image: always
+  transfer:
+    depends_on:
+      - conf
+    image: hub.yfcloud.com/ngxlog/transfer:latest
+    network_mode: host
+    ports:
+      - "${TRANSFER_LISTEN_PORT}:8100"
+    restart: always
+    tty: true
+    stdin_open: true
+    volumes:
+      - "/var/docker/ngxlog/transfer/var/:/ngxlog/transfer/var/"
+      - "/etc/hosts:/etc/hosts"
+      - "${LOG_PATH}:${LOG_PATH}"
+    volumes_from:
+      - conf
+    command:
+      - -c=/ngxlog/conf/transfer.yml
+    labels:
+      io.rancher.scheduler.affinity:host_label: ngxlogserver=${NGX_LOG_SERVER}
+      io.rancher.sidekicks: conf
+      io.rancher.container.pull_image: always
 
   loguper:
     depends_on:
       - conf
     image: hub.yfcloud.com/ngxlog/loguper:latest
-    network_mode: none
+    network_mode: host
     restart: always
     tty: true
     stdin_open: true
