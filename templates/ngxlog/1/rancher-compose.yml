@@ -26,6 +26,12 @@
       - s0
       - s1
       - s2
+  - variable: "ENABLED_LOG_UPLOAD"
+    label: "ENABLED_LOG_UPLOAD"
+    description: "Enabled log upload to Aliyun OSS."     
+    required: true
+    default: true 
+    type: "boolean"
   
 conf:
   scale: 1
@@ -37,4 +43,4 @@ transfer:
 
 loguper:
   scale: 1
-  start_on_create: true
+  start_on_create: ${ENABLED_LOG_UPLOAD}
