@@ -7,27 +7,6 @@ services:
     tty: true
     stdin_open: true
 
-  loguper:
-    depends_on:
-      - conf
-    image: hub.yfcloud.com/ngxlog/loguper:latest
-    network_mode: host
-    restart: always
-    tty: true
-    stdin_open: true
-    volumes:
-      - "/var/docker/ngxlog/loguper/var/:/ngxlog/loguper/var/"
-      - "${LOG_PATH}:${LOG_PATH}"
-    volumes_from:
-      - conf
-      - transfer
-    command:
-      - -c=/ngxlog/conf/loguper.yml
-    labels:
-      io.rancher.scheduler.affinity:host_label: ngxlogserver=${NGX_LOG_SERVER}
-      io.rancher.sidekicks: conf
-      io.rancher.container.pull_image: always     
-
   transfer:
     depends_on:
       - conf
@@ -50,4 +29,26 @@ services:
       io.rancher.scheduler.affinity:host_label: ngxlogserver=${NGX_LOG_SERVER}
       io.rancher.sidekicks: conf
       io.rancher.container.pull_image: always
+
+    loguper:
+    depends_on:
+      - conf
+      - transfer
+    image: hub.yfcloud.com/ngxlog/loguper:latest
+    network_mode: host
+    restart: always
+    tty: true
+    stdin_open: true
+    volumes:
+      - "/var/docker/ngxlog/loguper/var/:/ngxlog/loguper/var/"
+      - "${LOG_PATH}:${LOG_PATH}"
+    volumes_from:
+      - conf
+      - transfer
+    command:
+      - -c=/ngxlog/conf/loguper.yml
+    labels:
+      io.rancher.scheduler.affinity:host_label: ngxlogserver=${NGX_LOG_SERVER}
+      io.rancher.sidekicks: conf
+      io.rancher.container.pull_image: always     
 
