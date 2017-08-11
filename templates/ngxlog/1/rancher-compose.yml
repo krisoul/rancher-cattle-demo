@@ -31,7 +31,7 @@
     description: "Enabled log upload to Aliyun OSS."     
     required: true
     default: true 
-    type: "boolean"
+    type: boolean
   
 conf:
   scale: 1
