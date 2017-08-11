@@ -11,7 +11,7 @@ services:
     depends_on:
       - conf
     image: hub.yfcloud.com/ngxlog/loguper:latest
-    network_mode: none
+    network_mode: host
     restart: always
     tty: true
     stdin_open: true
@@ -31,7 +31,7 @@ services:
     depends_on:
       - conf
     image: hub.yfcloud.com/ngxlog/transfer:latest
-    network_mode: none
+    network_mode: host
     ports:
       - "${TRANSFER_LISTEN_PORT}:8100"
     restart: always
