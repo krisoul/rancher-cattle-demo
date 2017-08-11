@@ -34,7 +34,7 @@ services:
     depends_on:
       - conf
     image: hub.yfcloud.com/ngxlog/loguper:latest
-    network_mode: host
+    network_mode: MANAGED
     restart: always
     tty: true
     stdin_open: true
