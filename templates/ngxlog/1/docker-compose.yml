@@ -27,7 +27,6 @@ services:
       - -c=/ngxlog/conf/transfer.yml
     labels:
       io.rancher.scheduler.affinity:host_label: ngxlogserver=${NGX_LOG_SERVER}
-  #    io.rancher.sidekicks: conf
       io.rancher.container.pull_image: always
 
   loguper:
@@ -47,6 +46,5 @@ services:
       - -c=/ngxlog/conf/loguper.yml
     labels:
       io.rancher.scheduler.affinity:host_label: ngxlogserver=${NGX_LOG_SERVER}
-    #  io.rancher.sidekicks: conf
       io.rancher.container.pull_image: always
 
