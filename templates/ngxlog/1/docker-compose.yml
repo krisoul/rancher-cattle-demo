@@ -20,6 +20,7 @@ services:
       - "${LOG_PATH}:${LOG_PATH}"
     volumes_from:
       - conf
+      - transfer
     command:
       - -c=/ngxlog/conf/loguper.yml
     labels:
