@@ -7,9 +7,7 @@ services:
     tty: true
     stdin_open: true
 
-  transfer:
-    depends_on:
-      - conf
+  transfer:  
     image: hub.yfcloud.com/ngxlog/transfer:latest
     network_mode: host
     ports:
@@ -30,8 +28,7 @@ services:
       io.rancher.container.pull_image: always
 
   loguper:
-    depends_on:
-      - conf
+
     image: hub.yfcloud.com/ngxlog/loguper:latest
     network_mode: host
     restart: always
