@@ -30,7 +30,7 @@ services:
       io.rancher.sidekicks: conf
       io.rancher.container.pull_image: always
 
-    loguper:
+  loguper:
     depends_on:
       - conf
       - transfer
