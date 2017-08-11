@@ -33,7 +33,6 @@ services:
   loguper:
     depends_on:
       - conf
-      - transfer
     image: hub.yfcloud.com/ngxlog/loguper:latest
     network_mode: host
     restart: always
@@ -44,11 +43,10 @@ services:
       - "${LOG_PATH}:${LOG_PATH}"
     volumes_from:
       - conf
-      - transfer
     command:
       - -c=/ngxlog/conf/loguper.yml
     labels:
       io.rancher.scheduler.affinity:host_label: ngxlogserver=${NGX_LOG_SERVER}
       io.rancher.sidekicks: conf
-      io.rancher.container.pull_image: always     
+      io.rancher.container.pull_image: always
 
