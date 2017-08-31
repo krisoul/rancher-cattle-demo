@@ -51,5 +51,5 @@ transfer:
   start_on_create: true
 
 loguper:
-  name: zk_scale
+  name: ${zk_scale}
   start_on_create: true
