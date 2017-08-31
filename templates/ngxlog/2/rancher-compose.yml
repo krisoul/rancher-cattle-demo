@@ -1,8 +1,8 @@
 .catalog:
   name: ngxlog
-  version: 1
+  version: 2
   description: Yufanjiasu Ngxlog System.
-  uuid: ngxlog-1
+  uuid: ngxlog-2
   questions:
   - variable: TRANSFER_LISTEN_PORT
     label: "TRANSFER_LISTEN_PORT"
@@ -41,7 +41,7 @@
     options:
       - true
       - false
-        
+
 conf:
   scale: 1
   start_on_create: true
