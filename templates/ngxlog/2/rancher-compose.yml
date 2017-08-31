@@ -31,9 +31,17 @@
     description: "Enabled log upload to Aliyun OSS."     
     required: true
     default: true 
-    type: boolean
-  
-  
+    type: boolean 
+  - variable: "zk_scale"
+    description: "Number of zk nodes. Note: Recommended an odd number"
+    label: "Zk Nodes:"
+    required: true
+    default: true
+    type: "enum" 
+    options:
+      - true
+      - false
+        
 conf:
   scale: 1
   start_on_create: true
@@ -43,5 +51,5 @@ transfer:
   start_on_create: true
 
 loguper:
-  scale: 1
+  name: zk_scale
   start_on_create: true
