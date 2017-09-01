@@ -46,5 +46,5 @@ transfer:
   start_on_create: true
 
 loguper:
-  scale: ${ENABLED_LOG_UPLOAD}
+  scale: $ENABLED_LOG_UPLOAD
   start_on_create: true
