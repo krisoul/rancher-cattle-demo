@@ -7,7 +7,7 @@
   - variable: "LISTEN_PORT"
     label: "LISTEN_PORT"
     description: "Specify an available port to listen."
-    default: 8080
+    default: 9091
     required: true
     type: "int"
 
