@@ -1,0 +1,4 @@
+node:
+  image: hub.yfcloud.com/demo/cicd
+  environment:
+    LISTEN_PORT: ${LISTEN_PORT}

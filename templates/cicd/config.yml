@@ -1,0 +1,4 @@
+name: cicd
+description: A demo to test ci/cd.
+version: 0
+category: Application

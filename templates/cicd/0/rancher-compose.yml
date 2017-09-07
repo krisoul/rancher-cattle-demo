@@ -1,0 +1,15 @@
+.catalog:
+  name: cicd
+  version: 0
+  description: A demo to test ci/cd.
+  uuid: cicd-0
+  questions:
+  - variable: "LISTEN_PORT"
+    label: "LISTEN_PORT"
+    description: "Specify an available port to listen."
+    default: 8080
+    required: true
+    type: "int"
+
+node:
+  scale: 1
