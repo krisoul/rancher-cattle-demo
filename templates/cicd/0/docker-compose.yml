@@ -1,4 +1,4 @@
 node:
-  image: hub.yfcloud.com/demo/cicd
+  image: hub.yfcloud.com/demo/cicd:1.0.0
   ports:
       - "${LISTEN_PORT}:8080"
