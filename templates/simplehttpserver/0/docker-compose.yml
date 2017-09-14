@@ -14,3 +14,4 @@ services:
       - "${LOG_PATH}:${LOG_PATH}"
     labels:
       io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:host_label: host=${DEPLOY_ON}
