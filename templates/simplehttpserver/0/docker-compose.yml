@@ -8,8 +8,7 @@ services:
     stdin_open: true
     ports:
       - "${HTTP_LISTEN_PORT}:9091"
-    command:
-      - -conf=/path/to/config_file
+  
     volumes:
       - "${LOG_PATH}:${LOG_PATH}"
     labels:
