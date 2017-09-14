@@ -2,7 +2,7 @@ version: '2'
 
 services:
   simplehttpserver:
-    image: hub.yfcloud.com/demo/simplehttpserver:latest
+    image: hub.yfcloud.io/demo/simplehttpserver:latest
     network_mode: host
     tty: true
     stdin_open: true

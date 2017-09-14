@@ -18,7 +18,7 @@
     type: "string"
   - variable: "DEPLOY_ON"
     label: "DEPLOY_ON"
-    description: "Specify a host path to deploy this stack."
+    description: "Specify a host to deploy this stack."
     default: ""
     required: true
     type: "string"
