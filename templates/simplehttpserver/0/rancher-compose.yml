@@ -4,17 +4,17 @@
   description: Yet another simple http server but written by golang.
   uuid: simplehttpserver-0
   questions:
-  - variable: "LISTEN_PORT"
-    label: "LISTEN_PORT"
+  - variable: "HTTP_LISTEN_PORT"
+    label: "HTTP_LISTEN_PORT"
     description: "Specify an available port to listen."
-    default: 888
+    default: 9091
     required: true
     type: "int"
-  - variable: "RESPONSE"
-    label: "RESPONSE"
-    description: "http reponse"
-    default: "hello world!"
-    required: false
+  - variable: "LOG_PATH"
+    label: "LOG_PATH"
+    description: "Specify an local path to storage the logs."
+    default: "/data/simplehttpserver/simplehttpserver"
+    required: true
     type: "string"
 
 node:

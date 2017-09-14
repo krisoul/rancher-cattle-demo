@@ -1,5 +1,16 @@
-node:
-  image: hub.yfcloud.com/simplehttpserver
-  environment:
-    LISTEN_PORT: ${LISTEN_PORT}
-    RESPONSE: ${RESPONSE}
+version: '2'
+
+services:
+  simplehttpserver:
+    image: hub.yfcloud.com/demo/simplehttpserver:latest
+    network_mode: host
+    tty: true
+    stdin_open: true
+    ports:
+      - "${HTTP_LISTEN_PORT}:9091"
+    command:
+      - -conf=/path/to/config_file
+    volumes:
+      - "${LOG_PATH}:${LOG_PATH}"
+    labels:
+      io.rancher.container.pull_image: always
