@@ -1,0 +1,22 @@
+.catalog:
+  name: Yfops
+  version: 0
+  description: Yfops.
+  uuid: Yfops-0
+  questions:
+  - variable: METRICSPUSHER_LISTEN
+    label: "METRICSPUSHER_LISTEN"
+    description: "Specify an available port to listen for MetricsPusher."
+    default: 4101
+    required: true
+    type: "int"
+  
+conf:
+  scale: 1
+  start_on_create: true
+
+transfer:
+  scale: 1
+  start_on_create: true
+
+

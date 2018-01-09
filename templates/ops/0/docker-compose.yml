@@ -1,0 +1,18 @@
+version: '0'
+
+services:
+  metricspusher:
+    image: hub.yfcloud.com/ops/metricspusher:latest
+    ports:
+      - "${METRICSPUSHER_LISTEN}:8141"
+    restart: always
+    tty: true
+    stdin_open: true
+    volumes:
+      - "/var/docker/ops/metricspusher/var/:/ops/metricspusher/var/"
+    command:
+      - -c=cfg.yml
+    labels:
+      io.rancher.scheduler.affinity:host_label: ops-metricspusher=true
+      io.rancher.container.pull_image: always
+
